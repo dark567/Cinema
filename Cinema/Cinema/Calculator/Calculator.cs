@@ -9,7 +9,7 @@ namespace Cinema.Calculator
     {
         public int Add(int first, int second)
         {
-            return first + second ;
+            return first + second;
         }
     }
 }
