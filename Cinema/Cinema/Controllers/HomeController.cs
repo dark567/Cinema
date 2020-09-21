@@ -29,11 +29,12 @@ namespace Cinema.Controllers
             return View();
         }
 
-        public ActionResult Login()
+        public ActionResult Login(/*int Id*/)
         {
             var myLogin = new LogIn();
             myLogin.Login = "Dark";
             myLogin.Pass = "321";
+            //myLogin.Pass = Id.ToString();
             return View("~/Views/Home/LogIn.cshtml", myLogin);
         }
     }

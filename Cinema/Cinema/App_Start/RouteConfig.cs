@@ -18,6 +18,12 @@ namespace Cinema
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //    name: "Login",
+            //    url: "LogIn",
+            //    defaults: new { controller = "Home", action = "LogIn", id = UrlParameter.Optional }
+            //);
         }
     }
 }
