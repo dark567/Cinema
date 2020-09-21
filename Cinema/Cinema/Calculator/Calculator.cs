@@ -7,6 +7,5 @@ namespace Cinema.Calculator
 {
     public class Calculator
     {
-
     }
 }
