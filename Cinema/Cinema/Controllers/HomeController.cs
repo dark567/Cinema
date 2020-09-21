@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinema.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,6 +27,14 @@ namespace Cinema.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Login()
+        {
+            var myLogin = new LogIn();
+            myLogin.Login = "Dark";
+            myLogin.Pass = "321";
+            return View("~/Views/Home/LogIn.cshtml", myLogin);
         }
     }
 }
