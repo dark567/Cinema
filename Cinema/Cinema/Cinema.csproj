@@ -120,17 +120,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\TestOOPController.cs" />
+    <Compile Include="Controllers\TicketsAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LogIn.cs" />
-    <Compile Include="Models\TestOOP\Parent.cs" />
-    <Compile Include="Models\TestOOP\Test2Class.cs" />
-    <Compile Include="Models\TestOOP\TestClass.cs" />
-    <Compile Include="Models\TestOOP\TestInterface.cs" />
+    <Compile Include="Models\Tickets\Genre.cs" />
+    <Compile Include="Models\Tickets\Hall.cs" />
+    <Compile Include="Models\Tickets\Movie.cs" />
+    <Compile Include="Models\Tickets\Tariff.cs" />
+    <Compile Include="Models\Tickets\TicketsJsonModel.cs" />
+    <Compile Include="Models\Tickets\TimeSlot.cs" />
+    <Compile Include="Models\Tickets\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

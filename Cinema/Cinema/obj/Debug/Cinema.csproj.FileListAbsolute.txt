@@ -72,7 +72,6 @@ D:\project\c#\temp\Cinema\Cinema\Cinema\bin\System.Web.WebPages.Razor.xml
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\Newtonsoft.Json.xml
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\Antlr3.Runtime.pdb
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csprojAssemblyReference.cache
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csproj.CoreCompileInputs.cache
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csproj.CopyComplete
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.dll
