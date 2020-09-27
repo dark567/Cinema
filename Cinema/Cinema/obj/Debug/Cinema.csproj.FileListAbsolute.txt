@@ -76,3 +76,4 @@ D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csproj.CoreCompileInput
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csproj.CopyComplete
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.dll
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.pdb
+D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csprojAssemblyReference.cache
