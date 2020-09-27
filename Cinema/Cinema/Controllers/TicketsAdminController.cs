@@ -27,11 +27,31 @@ namespace Cinema.Controllers
             return Content(modelJson, "application/json");
         }
 
+        public ActionResult FindAllMovies()
+        {
+            var movie = _ticketService.GetAllMovies();
+            if (movie == null)
+                return Content("Movies do not exist");
+
+            var modelJson = JsonConvert.SerializeObject(movie);
+            return Content(modelJson, "application/json");
+        }
+
         public ActionResult FindHallById(int id)
         {
             var hall = _ticketService.GetHallById(id);
             if (hall == null)
                 return Content("Hall with such Id do not exist");
+
+            var modelJson = JsonConvert.SerializeObject(hall);
+            return Content(modelJson, "application/json");
+        }
+
+        public ActionResult FindAllHalls()
+        {
+            var hall = _ticketService.GetAllHalls();
+            if (hall == null)
+                return Content("Halls do not exist");
 
             var modelJson = JsonConvert.SerializeObject(hall);
             return Content(modelJson, "application/json");
@@ -47,11 +67,31 @@ namespace Cinema.Controllers
             return Content(modelJson, "application/json");
         }
 
+        public ActionResult FindAllTimeSlots()
+        {
+            var timeSlot = _ticketService.GetAllTimeSlots();
+            if (timeSlot == null)
+                return Content("TimeSlots do not exist");
+
+            var modelJson = JsonConvert.SerializeObject(timeSlot);
+            return Content(modelJson, "application/json");
+        }
+
         public ActionResult FindTariffById(int id)
         {
             var tariff = _ticketService.GetTariffById(id);
             if (tariff == null)
                 return Content("Tariff with such Id do not exist");
+
+            var modelJson = JsonConvert.SerializeObject(tariff);
+            return Content(modelJson, "application/json");
+        }
+
+        public ActionResult FindAllTariffs()
+        {
+            var tariff = _ticketService.GetAllTariffs();
+            if (tariff == null)
+                return Content("Tariffs do not exist");
 
             var modelJson = JsonConvert.SerializeObject(tariff);
             return Content(modelJson, "application/json");
