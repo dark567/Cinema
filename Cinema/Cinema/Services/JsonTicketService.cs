@@ -1,7 +1,5 @@
 ﻿using Cinema.Models.Tickets;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
@@ -19,22 +17,26 @@ namespace Cinema.Services
 
         public Hall[] GetAllHalls()
         {
-            throw new NotImplementedException();
+            var fullModel = GetDataFromFile();
+            return fullModel.Halls;
         }
 
         public Movie[] GetAllMovies()
         {
-            throw new NotImplementedException();
+            var fullModel = GetDataFromFile();
+            return fullModel.Movies;
         }
 
         public Tariff[] GetAllTariffs()
         {
-            throw new NotImplementedException();
+            var fullModel = GetDataFromFile();
+            return fullModel.Tariffs;
         }
 
         public TimeSlot[] GetAllTimeSlots()
         {
-            throw new NotImplementedException();
+            var fullModel = GetDataFromFile();
+            return fullModel.TimeSlots;
         }
 
         public Hall GetHallById(int id)
