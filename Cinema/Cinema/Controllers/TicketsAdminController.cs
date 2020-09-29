@@ -17,6 +17,54 @@ namespace Cinema.Controllers
             _ticketService = new JsonTicketService(System.Web.HttpContext.Current);
         }
 
+
+        public ActionResult GetMoviesList()
+        {
+            var movies = _ticketService.GetAllMovies();
+            return View("~/Views/TicketsAdmin/MovieList.cshtml", movies);
+        }
+
+        [HttpGet]
+        public ActionResult EditMovie(int movieId)
+        {
+            var movie = _ticketService.GetMovieById(movieId);
+            return View("~/Views/TicketsAdmin/EditMovie.cshtml", movie);
+        }
+
+        [HttpPost]
+        public ActionResult EditMovie(Movie updatedMovie)
+        {
+            var updateResult = _ticketService.UpdateMovie(updatedMovie);
+            if (updateResult)
+                return RedirectToAction("GetMoviesList");
+
+            return Content("Update failed, please contact administaration");
+        }
+
+        public ActionResult GetHallsList()
+        {
+            var halls = _ticketService.GetAllHalls();
+            return View("~/Views/TicketsAdmin/HallList.cshtml", halls);
+        }
+
+        [HttpGet]
+        public ActionResult EditHall(int hallId)
+        {
+            var hall = _ticketService.GetHallById(hallId);
+            return View("~/Views/TicketsAdmin/EditHall.cshtml", hall);
+        }
+
+        [HttpPost]
+        public ActionResult EditHall(Hall updatedHall)
+        {
+            var updateResult = _ticketService.UpdateHall(updatedHall);
+            if (updateResult)
+                return RedirectToAction("GetHallsList");
+
+            return Content("Update failed, please contact administaration");
+        }
+
+
         public ActionResult FindMovieById(int id)
         {
             var movie = _ticketService.GetMovieById(id);

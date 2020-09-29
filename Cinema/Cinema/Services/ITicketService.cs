@@ -10,6 +10,10 @@ namespace Cinema.Services
     public interface ITicketService
     {
         Movie GetMovieById(int id);
+        bool UpdateMovie(Movie updatedMovie);
+        bool UpdateHall(Hall updatedHall);
+        bool UpdateTariff(Tariff updatedTariff);
+        bool UpdateTimeSlot(TimeSlot updatedTimeSlot);
         Movie[] GetAllMovies();
         Hall GetHallById(int id);
         Hall[] GetAllHalls();

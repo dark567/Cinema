@@ -1,0 +1,21 @@
+﻿@model Cinema.Models.Tickets.Movie[]
+
+<table>
+    <tr>
+        <th style="min-width: 30px">id</th>
+        <th>Poster</th>
+        <th style="min-width: 70px">Name</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@movie.Id</td>
+            <td><img style="max-height: 100px" src="@movie.ImageUrl" /></td>
+            <td>@movie.Name</td>
+            <td>@movie.Description</td>
+            <td>@Html.ActionLink("Edit", "EditMovie", "TicketsAdmin", new { movieId = movie.Id }, null)</td>
+        </tr>
+    }
+</table>

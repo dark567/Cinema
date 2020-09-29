@@ -1,0 +1,17 @@
+﻿@using Cinema.Utils
+@using Type = Cinema.Models.Tickets.Type
+@model Type[]
+@{
+    var types = EnumUtil.GetValues<Type>();
+}
+
+<div>
+    <label>Types</label>
+    <select multiple name="Types" id="Types">
+        @foreach (var type in types)
+        {
+            <option value="@type" @(Model.Contains(type) ? "selected" : string.Empty)>@type</option>
+        }
+    </select>
+</div>
+
