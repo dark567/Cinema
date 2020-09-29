@@ -1,0 +1,15 @@
+﻿@model Cinema.Models.Tickets.Tariff
+
+@using (Html.BeginForm("EditTariff", "TicketsAdmin"))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div>
+        @Html.LabelFor(x => x.Name)
+        @Html.EditorFor(x => x.Name)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Cost)
+        @Html.TextAreaFor(x => x.Cost)
+    </div>
+    <input type="submit" value="Save changes" />
+}

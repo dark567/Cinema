@@ -184,6 +184,10 @@
     <Content Include="Views\Editors\Genre.cshtml" />
     <Content Include="Views\TicketsAdmin\HallList.cshtml" />
     <Content Include="Views\TicketsAdmin\EditHall.cshtml" />
+    <Content Include="Views\TicketsAdmin\TariffList.cshtml" />
+    <Content Include="Views\TicketsAdmin\EditTariff.cshtml" />
+    <Content Include="Views\TicketsAdmin\TimeSlotList.cshtml" />
+    <Content Include="Views\TicketsAdmin\EditTimeSlot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

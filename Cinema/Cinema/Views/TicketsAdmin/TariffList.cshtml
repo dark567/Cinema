@@ -1,0 +1,19 @@
+﻿@model Cinema.Models.Tickets.Tariff[]
+
+<table>
+    <tr>
+        <th style="min-width: 30px">id</th>
+        <th style="min-width: 70px">Name</th>
+        <th>Cost</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var tariff in Model)
+    {
+        <tr>
+            <td>@tariff.Id</td>
+            <td>@tariff.Name</td>
+            <td>@tariff.Cost</td>
+            <td>@Html.ActionLink("Edit", "EditTariff", "TicketsAdmin", new { tariffId = tariff.Id }, null)</td>
+        </tr>
+    }
+</table>
