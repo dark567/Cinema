@@ -5,24 +5,31 @@
 {
     @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Movies)
 }
+<h2>Movies List</h2>
 
-<table>
-    <tr>
-        <th style="min-width: 30px">id</th>
-        <th>Poster</th>
-        <th style="min-width: 70px">Name</th>
-        <th>Description</th>
-        <th>Action</th>
-    </tr>
-    @foreach (var movie in Model)
-    {
+<table class="table table-striped table-bordered table-hover">
+    <thead>
         <tr>
-            <td>@movie.Id</td>
-            <td><img style="max-height: 100px" src="@movie.ImageUrl" /></td>
-            <td>@movie.Name</td>
-            <td>@movie.Description</td>
-            <td>@Html.ActionLink("Edit", "EditMovie", "TicketsAdmin", new { movieId = movie.Id }, null)</td>
-            <td>@Html.ActionLink("TimeSlots", "GetMovieTimeSlotsList", "TicketsAdmin", new { timeSlotId = movie.Id }, null)</td>
+            <th class="col">id</th>
+            <th class="col">Poster</th>
+            <th class="col">Name</th>
+            <th class="col">Description</th>
+            <th class="col">Action</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Id</td>
+                <td><img style="max-height: 100px" src="@movie.ImageUrl" /></td>
+                <td>@movie.Name</td>
+                <td>@movie.Description</td>
+                <td class="col-lg-2">
+                    @Html.ActionLink("Edit", "EditMovie", "TicketsAdmin", new { movieId = movie.Id }, new { @class = "btn btn-primary btn-block" })
+                    @Html.ActionLink("TimeSlots", "GetMovieTimeSlotsList", "TicketsAdmin", new { timeSlotId = movie.Id }, new { @class = "btn btn-primary btn-block" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

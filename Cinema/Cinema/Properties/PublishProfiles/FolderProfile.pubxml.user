@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 17:29:20</publishTime>
     </File>
     <File Include="bin/Cinema.dll">
-      <publishTime>09/22/2020 15:23:20</publishTime>
+      <publishTime>09/30/2020 21:43:16</publishTime>
     </File>
     <File Include="bin/Cinema.pdb">
-      <publishTime>09/22/2020 15:23:20</publishTime>
+      <publishTime>09/30/2020 21:43:16</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 17:10:50</publishTime>
@@ -226,7 +226,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2020 00:27:22</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>09/21/2020 00:27:00</publishTime>
+      <publishTime>09/30/2020 21:19:58</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>09/21/2020 00:27:00</publishTime>
@@ -294,6 +294,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Account/LoginResult.cshtml">
       <publishTime>09/22/2020 15:21:30</publishTime>
     </File>
+    <File Include="Views/Editors/Genre.cshtml">
+      <publishTime>09/29/2020 11:30:49</publishTime>
+    </File>
+    <File Include="Views/Editors/Types.cshtml">
+      <publishTime>09/29/2020 11:26:47</publishTime>
+    </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>09/21/2020 00:27:00</publishTime>
     </File>
@@ -301,13 +307,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2020 00:27:00</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/22/2020 14:51:39</publishTime>
+      <publishTime>09/22/2020 13:57:03</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>09/21/2020 00:27:00</publishTime>
     </File>
+    <File Include="Views/Shared/SubNavigation.cshtml">
+      <publishTime>09/30/2020 21:12:59</publishTime>
+    </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/22/2020 14:59:56</publishTime>
+      <publishTime>09/30/2020 17:56:38</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/EditHall.cshtml">
+      <publishTime>09/30/2020 21:24:52</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/EditMovie.cshtml">
+      <publishTime>09/30/2020 21:25:33</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/EditTariff.cshtml">
+      <publishTime>09/30/2020 21:30:39</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/EditTimeSlot.cshtml">
+      <publishTime>09/30/2020 21:29:18</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/GetMovieTimeSlotsList.cshtml">
+      <publishTime>09/30/2020 19:54:42</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/HallList.cshtml">
+      <publishTime>09/30/2020 21:23:50</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/MovieList.cshtml">
+      <publishTime>09/30/2020 21:40:52</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/TariffList.cshtml">
+      <publishTime>09/30/2020 21:23:50</publishTime>
+    </File>
+    <File Include="Views/TicketsAdmin/TimeSlotList.cshtml">
+      <publishTime>09/30/2020 21:23:50</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>09/21/2020 00:27:00</publishTime>
@@ -316,7 +352,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2020 00:27:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/21/2020 01:27:46</publishTime>
+      <publishTime>09/30/2020 21:42:06</publishTime>
     </File>
   </ItemGroup>
 </Project>

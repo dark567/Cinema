@@ -6,20 +6,26 @@
     @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Tariffs)
 }
 
-<table>
-    <tr>
-        <th style="min-width: 30px">id</th>
-        <th style="min-width: 70px">Name</th>
-        <th>Cost</th>
-        <th>Action</th>
-    </tr>
-    @foreach (var tariff in Model)
-    {
+<h2>Tariffs List</h2>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
         <tr>
-            <td>@tariff.Id</td>
-            <td>@tariff.Name</td>
-            <td>@tariff.Cost</td>
-            <td>@Html.ActionLink("Edit", "EditTariff", "TicketsAdmin", new { tariffId = tariff.Id }, null)</td>
+            <th>id</th>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Action</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var tariff in Model)
+        {
+            <tr>
+                <td>@tariff.Id</td>
+                <td>@tariff.Name</td>
+                <td>@tariff.Cost</td>
+                <td>@Html.ActionLink("Edit", "EditTariff", "TicketsAdmin", new { tariffId = tariff.Id }, new { @class = "btn btn-primary btn-block" })</td>
+            </tr>
+        }
+    </tbody>
 </table>

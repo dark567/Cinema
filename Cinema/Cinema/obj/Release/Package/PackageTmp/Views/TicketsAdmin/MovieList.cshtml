@@ -1,0 +1,32 @@
+﻿@using Cinema.Models.Tickets
+@model Cinema.Models.Tickets.Movie[]
+
+@section SubNav
+{
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Movies)
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">id</th>
+            <th class="col">Poster</th>
+            <th class="col">Name</th>
+            <th class="col">Description</th>
+            <th class="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Id</td>
+                <td><img style="max-height: 100px" src="@movie.ImageUrl" /></td>
+                <td>@movie.Name</td>
+                <td>@movie.Description</td>
+                <td>@Html.ActionLink("Edit", "EditMovie", "TicketsAdmin", new { movieId = movie.Id }, null)</td>
+                <td>@Html.ActionLink("TimeSlots", "GetMovieTimeSlotsList", "TicketsAdmin", new { timeSlotId = movie.Id }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>

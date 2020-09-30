@@ -1,0 +1,21 @@
+﻿@model Cinema.Models.LogIn
+
+@using (Html.BeginForm("LogIn", "Account"))
+{
+    <div>
+        @Html.LabelFor(model => model.Login)
+        @Html.EditorFor(model => model.Login)
+        @Html.ValidationMessageFor(model => model.Login)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Pass)
+        @Html.PasswordFor(model => model.Pass)
+        @Html.ValidationMessageFor(model => model.Pass)
+    </div>
+
+    @Html.ValidationSummary()
+
+    <input type="submit" name="Login" value="Log-In" />
+}
+
+

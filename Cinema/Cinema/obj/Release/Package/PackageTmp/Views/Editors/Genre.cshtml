@@ -1,0 +1,18 @@
+﻿
+@using Cinema.Utils
+@using Genre = Cinema.Models.Tickets.Genre
+@model Genre[]
+@{
+    var genres = EnumUtil.GetValues<Genre>();
+}
+
+<div>
+    <label>Genre</label>
+    <select multiple name="Genres" id="Genres">
+        @foreach (var genre in genres)
+        {
+            <option value="@genre" @(Model.Contains(genre) ? "selected" : string.Empty)>@genre</option>
+        }
+    </select>
+</div>
+

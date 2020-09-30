@@ -1,0 +1,21 @@
+﻿@using Cinema.Models.Tickets
+@model Cinema.Models.Tickets.Tariff
+
+@section SubNav
+{
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Tariffs)
+}
+
+@using (Html.BeginForm("EditTariff", "TicketsAdmin"))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div>
+        @Html.LabelFor(x => x.Name)
+        @Html.EditorFor(x => x.Name)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Cost)
+        @Html.EditorFor(x => x.Cost)
+    </div>
+    <input type="submit" value="Save changes" />
+}
