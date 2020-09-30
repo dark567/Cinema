@@ -1,4 +1,10 @@
-﻿@model Cinema.Models.Tickets.Tariff[]
+﻿@using Cinema.Models.Tickets
+@model Cinema.Models.Tickets.Tariff[]
+
+@section SubNav
+{
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Tariffs)
+}
 
 <table>
     <tr>

@@ -1,4 +1,10 @@
-﻿@model Cinema.Models.Tickets.Movie
+﻿@using Cinema.Models.Tickets
+@model Cinema.Models.Tickets.Movie
+
+@section SubNav
+{
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Movies)
+}
 
 @using (Html.BeginForm("EditMovie", "TicketsAdmin"))
 {

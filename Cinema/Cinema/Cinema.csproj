@@ -130,6 +130,7 @@
     <Compile Include="Models\Tickets\Genre.cs" />
     <Compile Include="Models\Tickets\Hall.cs" />
     <Compile Include="Models\Tickets\Movie.cs" />
+    <Compile Include="Models\Tickets\SubNavigationMenu.cs" />
     <Compile Include="Models\Tickets\Tariff.cs" />
     <Compile Include="Models\Tickets\TicketsJsonModel.cs" />
     <Compile Include="Models\Tickets\TimeSlot.cs" />

@@ -1,8 +1,10 @@
-﻿@model Cinema.Models.Tickets.Movie[]
+﻿@using Cinema.Models.Tickets
+@model Cinema.Models.Tickets.Movie[]
+
 @section SubNav
 {
-    @Html.Partial("~/Views/Shared/SubNavigation.cshtml")
-    }
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Movies)
+}
 
 <table>
     <tr>
@@ -14,13 +16,13 @@
     </tr>
     @foreach (var movie in Model)
     {
-<tr>
-    <td>@movie.Id</td>
-    <td><img style="max-height: 100px" src="@movie.ImageUrl" /></td>
-    <td>@movie.Name</td>
-    <td>@movie.Description</td>
-    <td>@Html.ActionLink("Edit", "EditMovie", "TicketsAdmin", new { movieId = movie.Id }, null)</td>
-    <td>@Html.ActionLink("TimeSlots", "GetMovieTimeSlotsList", "TicketsAdmin", new { timeSlotId = movie.Id }, null)</td>
-</tr>
+        <tr>
+            <td>@movie.Id</td>
+            <td><img style="max-height: 100px" src="@movie.ImageUrl" /></td>
+            <td>@movie.Name</td>
+            <td>@movie.Description</td>
+            <td>@Html.ActionLink("Edit", "EditMovie", "TicketsAdmin", new { movieId = movie.Id }, null)</td>
+            <td>@Html.ActionLink("TimeSlots", "GetMovieTimeSlotsList", "TicketsAdmin", new { timeSlotId = movie.Id }, null)</td>
+        </tr>
     }
 </table>

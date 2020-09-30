@@ -1,5 +1,11 @@
-﻿@model Cinema.Models.Tickets.TimeSlot[]
+﻿@using Cinema.Models.Tickets
 
+@model Cinema.Models.Tickets.TimeSlot[]
+
+@section SubNav
+{
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.TimeSlots)
+}
 <table>
     <tr>
         <th style="min-width: 50px">id</th>
