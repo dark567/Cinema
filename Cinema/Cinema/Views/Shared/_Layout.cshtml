@@ -24,8 +24,10 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Логин", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Admin", "GetMoviesList", "TicketsAdmin")</li>
                 </ul>
             </div>
+            @RenderSection("SubNav", required:false)
         </div>
     </div>
     <div class="container body-content">

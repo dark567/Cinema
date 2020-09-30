@@ -87,6 +87,23 @@ namespace Cinema.Controllers
             return Content("Update failed, please contact administaration");
         }
 
+        [HttpGet]
+        public ActionResult GetMovieTimeSlotsList(int timeSlotId)
+        {
+            var tariff = _ticketService.GetTariffById(timeSlotId);
+            return View("~/Views/TicketsAdmin/EditTariff.cshtml", tariff);
+        }
+
+        [HttpPost]
+        public ActionResult GetMovieTimeSlotsList(Tariff timeSlotId)
+        {
+            var updateResult = _ticketService.UpdateTariff(timeSlotId);
+            if (updateResult)
+                return RedirectToAction("GetTariffsList");
+
+            return Content("Update failed, please contact administaration");
+        }
+
         public ActionResult GetTimeSlotsList()
         {
             var tariff = _ticketService.GetAllTimeSlots();

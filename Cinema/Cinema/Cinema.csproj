@@ -188,6 +188,8 @@
     <Content Include="Views\TicketsAdmin\EditTariff.cshtml" />
     <Content Include="Views\TicketsAdmin\TimeSlotList.cshtml" />
     <Content Include="Views\TicketsAdmin\EditTimeSlot.cshtml" />
+    <Content Include="Views\Shared\SubNavigation.cshtml" />
+    <Content Include="Views\TicketsAdmin\GetMovieTimeSlotsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

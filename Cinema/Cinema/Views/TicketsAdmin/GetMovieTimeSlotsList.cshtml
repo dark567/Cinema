@@ -1,0 +1,34 @@
+﻿@model Cinema.Models.Tickets.Movie
+
+@using (Html.BeginForm("EditMovie", "TicketsAdmin"))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div>
+        @Html.LabelFor(x => x.Name)
+        @Html.EditorFor(x => x.Name)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.ImageUrl)
+        @Html.EditorFor(x => x.ImageUrl)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Description)
+        @Html.TextAreaFor(x => x.Description)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Duration)
+        @Html.EditorFor(x => x.Duration)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.MinAge)
+        @Html.EditorFor(x => x.MinAge)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Rating)
+        @Html.EditorFor(x => x.Rating)
+    </div>
+
+    @Html.Partial("~/Views/Editors/Types.cshtml", Model.Types)
+    @Html.Partial("~/Views/Editors/Genre.cshtml", Model.Genres)
+    <input type="submit" value="Save changes" />
+}
