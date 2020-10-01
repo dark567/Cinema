@@ -5,7 +5,11 @@
 {
     @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Movies)
 }
-<h2>Movies List</h2>
+<h2 class="admin-heading">Movies List</h2>
+<div class="admin-add-btn">
+    @Html.ActionLink("Add movie", "AddMovie", "TicketsAdmin", null, new { @class = "btn btn-success btn-block" })
+</div>
+
 
 <table class="table table-striped table-bordered table-hover">
     <thead>

@@ -6,10 +6,10 @@
     @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Movies)
 }
 
-<h2>Edit Movie</h2>
-@using (Html.BeginForm("EditMovie", "TicketsAdmin"))
+<h2>Add Movie</h2>
+
+@using (Html.BeginForm("AddMovie", "TicketsAdmin"))
 {
-    @Html.HiddenFor(x => x.Id)
     <div class="form-group">
         @Html.LabelFor(x => x.Name)
         @Html.EditorFor(x => x.Name, new { htmlAttrubutes = new { @class = "form-control" } })
@@ -35,7 +35,7 @@
         @Html.EditorFor(x => x.Rating, new { htmlAttrubutes = new { @class = "form-control" } })
     </div>
 
-    @Html.Partial("~/Views/Editors/Types.cshtml", Model.Types)
-    @Html.Partial("~/Views/Editors/Genre.cshtml", Model.Genres)
-    <input type="submit" value="Save changes" class="btn btn-success"/>
+    @Html.Partial("~/Views/Editors/Types.cshtml")
+    @Html.Partial("~/Views/Editors/Genre.cshtml")
+    <input type="submit" value="Add changes" class="btn btn-success"/>
 }

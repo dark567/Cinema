@@ -120,6 +120,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\PopulateHallsListAttribute.cs" />
+    <Compile Include="Attributes\PopulateTariffsListAttribute.cs" />
+    <Compile Include="Attributes\PopulateMoviesListAttribute.cs" />
     <Compile Include="Controllers\TicketsAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -191,6 +194,11 @@
     <Content Include="Views\TicketsAdmin\EditTimeSlot.cshtml" />
     <Content Include="Views\Shared\SubNavigation.cshtml" />
     <Content Include="Views\TicketsAdmin\GetMovieTimeSlotsList.cshtml" />
+    <Content Include="Views\TicketsAdmin\AddMovie.cshtml" />
+    <Content Include="Views\Editors\MoviesList.cshtml" />
+    <Content Include="Views\Editors\TariffsList.cshtml" />
+    <Content Include="Views\Editors\HallsList.cshtml" />
+    <Content Include="Views\TicketsAdmin\AddTimeSlot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

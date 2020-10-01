@@ -6,7 +6,12 @@
 {
     @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.TimeSlots)
 }
-    <h2>TimeSlots List</h2>
+    <h2 class="admin-heading">TimeSlots List</h2>
+
+    <div class="admin-add-btn">
+        @Html.ActionLink("Add timeSlot", "AddTimeSlot", "TicketsAdmin", null, new { @class = "btn btn-success btn-block" })
+    </div>
+
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>

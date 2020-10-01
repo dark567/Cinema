@@ -10,7 +10,7 @@
     <select multiple name="Types" id="Types" class="form-control">
         @foreach (var type in types)
         {
-            <option value="@type" @(Model.Contains(type) ? "selected" : string.Empty)>@type</option>
+            <option value="@type" @(Model != null && Model.Contains(type) ? "selected" : string.Empty)>@type</option>
         }
     </select>
 </div>

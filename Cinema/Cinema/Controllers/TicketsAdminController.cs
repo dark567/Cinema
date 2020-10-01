@@ -1,4 +1,5 @@
-﻿using Cinema.Models.Tickets;
+﻿using Cinema.Attributes;
+using Cinema.Models.Tickets;
 using Cinema.Services;
 using Newtonsoft.Json;
 using System;
@@ -22,6 +23,22 @@ namespace Cinema.Controllers
         {
             var movies = _ticketService.GetAllMovies();
             return View("~/Views/TicketsAdmin/MovieList.cshtml", movies);
+        }
+
+        [HttpGet]
+        public ActionResult AddMovie()
+        {
+            return View("~/Views/TicketsAdmin/AddMovie.cshtml");
+        }
+
+        [HttpPost]
+        public ActionResult AddMovie(Movie newMovie)
+        {
+            var createResult = _ticketService.CreateMovie(newMovie);
+            if (createResult)
+                return RedirectToAction("GetMoviesList");
+
+            return Content("Update failed, please contact administaration");
         }
 
         [HttpGet]
@@ -111,6 +128,24 @@ namespace Cinema.Controllers
         }
 
         [HttpGet]
+        [PopulateMoviesList, PopulateHallsList, PopulateTariffsList]
+        public ActionResult AddTimeSlot()
+        {
+            return View("~/Views/TicketsAdmin/AddTimeSlot.cshtml");
+        }
+
+        [HttpPost]
+        public ActionResult AddTimeSlot(TimeSlot addTimeSlot)
+        {
+            var addResult = _ticketService.CreateTimeSlot(addTimeSlot);
+            if (addResult)
+                return RedirectToAction("GetTimeSlotsList");
+
+            return Content("Update failed, please contact administaration");
+        }
+
+        [HttpGet]
+        [PopulateMoviesList, PopulateHallsList, PopulateTariffsList]
         public ActionResult EditTimeSlot(int timeSlotId)
         {
             var timeSlot = _ticketService.GetTimeSlotById(timeSlotId);
@@ -126,7 +161,6 @@ namespace Cinema.Controllers
 
             return Content("Update failed, please contact administaration");
         }
-
 
         public ActionResult FindMovieById(int id)
         {

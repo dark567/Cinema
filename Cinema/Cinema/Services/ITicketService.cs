@@ -11,9 +11,13 @@ namespace Cinema.Services
     {
         Movie GetMovieById(int id);
         bool UpdateMovie(Movie updatedMovie);
+        bool CreateMovie(Movie newMovie);
         bool UpdateHall(Hall updatedHall);
+        bool CreateHall(Hall newHall);
         bool UpdateTariff(Tariff updatedTariff);
+        bool CreateTariff(Tariff newTariff);
         bool UpdateTimeSlot(TimeSlot updatedTimeSlot);
+        bool CreateTimeSlot(TimeSlot newTimeSlot);
         Movie[] GetAllMovies();
         Hall GetHallById(int id);
         Hall[] GetAllHalls();

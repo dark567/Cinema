@@ -6,17 +6,17 @@
     @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.TimeSlots)
 }
 
-<h2>TimeSlots Edit</h2>
-@using (Html.BeginForm("EditTimeSlot", "TicketsAdmin"))
+<h2>TimeSlots Add</h2>
+@using (Html.BeginForm("AddTimeSlot", "TicketsAdmin"))
 {
-    @Html.HiddenFor(x => x.Id)
-    @Html.HiddenFor(x => x.HallId)
-    @Html.HiddenFor(x => x.MovieId)
-    @Html.HiddenFor(x => x.TariffId)
-
     <div class="form-group">
         @Html.LabelFor(x => x.StartTime)
         @Html.EditorFor(x => x.StartTime, new { htmlAttrubutes = new { @class = "form-control" } })
     </div>
-    <input type="submit" value="Save changes" class="btn btn-success" />
+
+    @Html.Partial("~/Views/Editors/MoviesList.cshtml")
+    @Html.Partial("~/Views/Editors/HallsList.cshtml")
+    @Html.Partial("~/Views/Editors/TariffsList.cshtml")
+     
+    <input type="submit" value="Add timeslot" class="btn btn-success" />
 }

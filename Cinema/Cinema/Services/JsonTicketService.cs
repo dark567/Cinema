@@ -33,7 +33,7 @@ namespace Cinema.Services
             movieToUpdate.Duration = updatedMovie.Duration;
             movieToUpdate.Rating = updatedMovie.Rating;
             if (updatedMovie.Types != null)
-             movieToUpdate.Types = updatedMovie.Types;
+                movieToUpdate.Types = updatedMovie.Types;
 
             SaveDataToFile(fullModel);
             return true;
@@ -147,6 +147,91 @@ namespace Cinema.Services
             var deserializedModel = JsonConvert.DeserializeObject<TicketsJsonModel>(jsonModel);
             return deserializedModel;
 
+        }
+
+        public bool CreateMovie(Movie newMovie)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var newMovieId = fullModel.Movies.Max(movie => movie.Id) + 1;
+                newMovie.Id = newMovieId;
+                var existingMovieList = fullModel.Movies.ToList();
+                existingMovieList.Add(newMovie);
+                fullModel.Movies = existingMovieList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+       
+            return true;
+
+        }
+
+        public bool CreateHall(Hall newHall)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var newHallId = fullModel.Halls.Max(movie => movie.Id) + 1;
+                newHall.Id = newHallId;
+                var existingHallsList = fullModel.Halls.ToList();
+                existingHallsList.Add(newHall);
+                fullModel.Halls = existingHallsList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+    
+            return true;
+        }
+
+        public bool CreateTariff(Tariff newTariff)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var newTariffId = fullModel.Tariffs.Max(timeSlot => timeSlot.Id) + 1;
+                newTariff.Id = newTariffId;
+                var existingnewTariffList = fullModel.Tariffs.ToList();
+                existingnewTariffList.Add(newTariff);
+                fullModel.Tariffs = existingnewTariffList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+           
+            return true;
+        }
+
+        public bool CreateTimeSlot(TimeSlot newTimeSlot)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var newTimeSlotId = fullModel.TimeSlots.Max(timeSlot => timeSlot.Id) + 1;
+                newTimeSlot.Id = newTimeSlotId;
+                var existingnewTimeSlotList = fullModel.TimeSlots.ToList();
+                existingnewTimeSlotList.Add(newTimeSlot);
+                fullModel.TimeSlots = existingnewTimeSlotList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+            return true;
         }
     }
 }
