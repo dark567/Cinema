@@ -1,11 +1,11 @@
 ﻿@using Cinema.Models.Tickets
 @model Cinema.Models.Tickets.SubNavigationMenu
 
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li class="@(Model==SubNavigationMenu.Movies?"sub-nav-active":string.Empty)">@Html.ActionLink("Movies", "GetMoviesList", "TicketsAdmin")</li>
-            <li class="@(Model==SubNavigationMenu.Tariffs?"sub-nav-active":string.Empty)">@Html.ActionLink("Tariffs", "GetTariffsList", "TicketsAdmin")</li>
-            <li class="@(Model==SubNavigationMenu.Halls?"sub-nav-active":string.Empty)">@Html.ActionLink("Halls", "GetHallsList", "TicketsAdmin")</li>
-            <li class="@(Model==SubNavigationMenu.TimeSlots?"sub-nav-active":string.Empty)">@Html.ActionLink("TimeSlot", "GetTimeSlotsList", "TicketsAdmin")</li>
-        </ul>
-    </div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li class="@(Model==SubNavigationMenu.Movies?"sub-nav-active":string.Empty)">@Html.ActionLink("Movies", "GetMoviesList", "TicketsAdmin")</li>
+        <li class="@(Model==SubNavigationMenu.Tariffs?"sub-nav-active":string.Empty)">@Html.ActionLink("Tariffs", "GetTariffsList", "TicketsAdmin")</li>
+        <li class="@(Model==SubNavigationMenu.Halls?"sub-nav-active":string.Empty)">@Html.ActionLink("Halls", "GetHallsList", "TicketsAdmin")</li>
+        <li class="@(Model==SubNavigationMenu.TimeSlots?"sub-nav-active":string.Empty)">@Html.ActionLink("TimeSlot", "GetTimeSlotsList", "TicketsAdmin")</li>
+    </ul>
+</div>

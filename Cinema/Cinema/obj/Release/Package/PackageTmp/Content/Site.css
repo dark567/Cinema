@@ -20,9 +20,21 @@
     font-weight: bold;
 }
 
+.admin-heading {
+    display: inline-block;
+    max-width: 300px;
+}
+
+.admin-add-btn {
+    display: inline-block;
+    width: 250px;
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-   /*max-width: 280px;*/
+    /*max-width: 280px;*/
 }

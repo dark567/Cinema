@@ -1,0 +1,41 @@
+﻿@using Cinema.Models.Tickets
+@model Cinema.Models.Tickets.Movie
+
+@section SubNav
+{
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Movies)
+}
+
+<h2>Add Movie</h2>
+
+@using (Html.BeginForm("AddMovie", "TicketsAdmin"))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.EditorFor(x => x.Name, new { htmlAttrubutes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.ImageUrl)
+        @Html.EditorFor(x => x.ImageUrl, new { htmlAttrubutes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description)
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Duration)
+        @Html.EditorFor(x => x.Duration, new { htmlAttrubutes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.MinAge)
+        @Html.EditorFor(x => x.MinAge, new { htmlAttrubutes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Rating)
+        @Html.EditorFor(x => x.Rating, new { htmlAttrubutes = new { @class = "form-control" } })
+    </div>
+
+    @Html.Partial("~/Views/Editors/Types.cshtml")
+    @Html.Partial("~/Views/Editors/Genre.cshtml")
+    <input type="submit" value="Add changes" class="btn btn-success"/>
+}
