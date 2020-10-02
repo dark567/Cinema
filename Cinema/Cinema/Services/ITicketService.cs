@@ -25,5 +25,6 @@ namespace Cinema.Services
         Tariff[] GetAllTariffs();
         TimeSlot GetTimeSlotById(int id);
         TimeSlot[] GetAllTimeSlots();
+        TimeSlot[] GetTimeSlotsByMovieId(int id);
     }
 }

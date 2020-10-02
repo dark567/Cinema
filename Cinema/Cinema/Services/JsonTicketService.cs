@@ -113,6 +113,12 @@ namespace Cinema.Services
             return fullModel.TimeSlots;
         }
 
+        public TimeSlot[] GetTimeSlotsByMovieId(int id)
+        {
+            var fullModel = GetDataFromFile();
+            return fullModel.TimeSlots.Where(timeSlots => timeSlots.MovieId == id).ToArray();
+        }
+
         public Hall GetHallById(int id)
         {
             var fullModel = GetDataFromFile();
@@ -136,6 +142,8 @@ namespace Cinema.Services
             var fullModel = GetDataFromFile();
             return fullModel.TimeSlots.FirstOrDefault(timeSlots => timeSlots.Id == id);
         }
+
+
 
         private TicketsJsonModel GetDataFromFile()
         {

@@ -3,6 +3,8 @@ using Cinema.Models.Tickets;
 using Cinema.Services;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Type = Cinema.Models.Tickets.Type;
 
@@ -104,27 +106,44 @@ namespace Cinema.Controllers
             return Content("Update failed, please contact administaration");
         }
 
-        [HttpGet]
-        public ActionResult GetMovieTimeSlotsList(int timeSlotId)
-        {
-            var tariff = _ticketService.GetTariffById(timeSlotId);
-            return View("~/Views/TicketsAdmin/EditTariff.cshtml", tariff);
-        }
 
-        [HttpPost]
-        public ActionResult GetMovieTimeSlotsList(Tariff timeSlotId)
-        {
-            var updateResult = _ticketService.UpdateTariff(timeSlotId);
-            if (updateResult)
-                return RedirectToAction("GetTariffsList");
-
-            return Content("Update failed, please contact administaration");
-        }
 
         public ActionResult GetTimeSlotsList()
         {
-            var tariff = _ticketService.GetAllTimeSlots();
-            return View("~/Views/TicketsAdmin/TimeSlotList.cshtml", tariff);
+            var timeSlots = _ticketService.GetAllTimeSlots();
+            var resultModel = ProcessTimeSLot(timeSlots);
+            return View("~/Views/TicketsAdmin/TimeSlotList.cshtml", resultModel);
+        }
+
+
+        public ActionResult GetMovieTimeSlotsList(int movieId)
+        {
+            var timeSlots = _ticketService.GetTimeSlotsByMovieId(movieId);
+            var resultModel = ProcessTimeSLot(timeSlots);
+            return View("~/Views/TicketsAdmin/TimeSlotList.cshtml", resultModel);
+        }
+
+
+        private TimeSlotGridRow[] ProcessTimeSLot(TimeSlot[] timeSlots)
+        {
+            var movies = _ticketService.GetAllMovies();
+            var halls = _ticketService.GetAllHalls();
+            var tariffs = _ticketService.GetAllTariffs();
+
+            var resultModels = new List<TimeSlotGridRow>();
+            foreach (var timeSlot in timeSlots)
+            {
+                resultModels.Add(new TimeSlotGridRow
+                {
+                    Id = timeSlot.Id,
+                    StartTime = timeSlot.StartTime,
+                    MovieName = movies.First(movie => movie.Id == timeSlot.MovieId).Name,
+                    HallName = halls.First(hall => hall.Id == timeSlot.HallId).Name,
+                    TariffName = tariffs.First(tariff => tariff.Id == timeSlot.TariffId).Name
+                });
+            }
+
+            return resultModels.ToArray();
         }
 
         [HttpGet]
@@ -143,6 +162,7 @@ namespace Cinema.Controllers
 
             return Content("Update failed, please contact administaration");
         }
+
 
         [HttpGet]
         [PopulateMoviesList, PopulateHallsList, PopulateTariffsList]

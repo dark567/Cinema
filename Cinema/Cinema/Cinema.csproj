@@ -137,6 +137,7 @@
     <Compile Include="Models\Tickets\Tariff.cs" />
     <Compile Include="Models\Tickets\TicketsJsonModel.cs" />
     <Compile Include="Models\Tickets\TimeSlot.cs" />
+    <Compile Include="Models\Tickets\TimeSlotGridRow.cs" />
     <Compile Include="Models\Tickets\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ITicketService.cs" />

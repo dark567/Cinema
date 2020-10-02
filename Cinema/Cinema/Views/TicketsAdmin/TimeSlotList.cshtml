@@ -1,6 +1,6 @@
 ﻿@using Cinema.Models.Tickets
 
-@model Cinema.Models.Tickets.TimeSlot[]
+@model TimeSlotGridRow[]
 
 @section SubNav
 {
@@ -16,10 +16,10 @@
     <thead>
         <tr>
             <th style="min-width: 50px">id</th>
-            <th style="min-width: 50px">StartTime</th>
-            <th style="min-width: 100px">MovieId</th>
-            <th style="min-width: 100px">HallId</th>
-            <th style="min-width: 100px">TariffId</th>
+            <th style="min-width: 50px">Start Time</th>
+            <th style="min-width: 100px">Movie</th>
+            <th style="min-width: 100px">Hall</th>
+            <th style="min-width: 100px">Tariff</th>
             <th style="min-width: 100px">Action</th>
         </tr>
     </thead>
@@ -29,9 +29,9 @@
             <tr>
                 <td>@timeSlot.Id</td>
                 <td>@timeSlot.StartTime</td>
-                <td>@timeSlot.MovieId</td>
-                <td>@timeSlot.HallId</td>
-                <td>@timeSlot.TariffId</td>
+                <td>@timeSlot.MovieName</td>
+                <td>@timeSlot.HallName</td>
+                <td>@timeSlot.TariffName</td>
                 <td>@Html.ActionLink("Edit", "EditTimeSlot", "TicketsAdmin", new { timeSlotId = timeSlot.Id }, new { @class = "btn btn-primary btn-block" })</td>
             </tr>
         }
