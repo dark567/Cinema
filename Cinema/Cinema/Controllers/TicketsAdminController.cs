@@ -60,6 +60,16 @@ namespace Cinema.Controllers
             return Content("Update failed, please contact administaration");
         }
 
+
+        public ActionResult RemoveMovie(int movieId)
+        {
+            var removeResult = _ticketService.RemoveMovie(movieId);
+            if (removeResult)
+                return RedirectToAction("GetMoviesList");
+
+            return Content("Update failed, please contact administaration");
+        }
+
         public ActionResult GetHallsList()
         {
             var halls = _ticketService.GetAllHalls();
@@ -137,9 +147,9 @@ namespace Cinema.Controllers
                 {
                     Id = timeSlot.Id,
                     StartTime = timeSlot.StartTime,
-                    MovieName = movies.First(movie => movie.Id == timeSlot.MovieId).Name,
-                    HallName = halls.First(hall => hall.Id == timeSlot.HallId).Name,
-                    TariffName = tariffs.First(tariff => tariff.Id == timeSlot.TariffId).Name
+                    MovieName = movies.FirstOrDefault(movie => movie.Id == timeSlot.MovieId)?.Name ?? "Data Not Found",
+                    HallName = halls.FirstOrDefault(hall => hall.Id == timeSlot.HallId)?.Name ?? "Data Not Found",
+                    TariffName = tariffs.FirstOrDefault(tariff => tariff.Id == timeSlot.TariffId)?.Name ?? "Data Not Found"
                 });
             }
 

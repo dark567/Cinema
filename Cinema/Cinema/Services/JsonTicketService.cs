@@ -163,7 +163,7 @@ namespace Cinema.Services
 
             try
             {
-                var newMovieId = fullModel.Movies.Max(movie => movie.Id) + 1;
+                var newMovieId = !fullModel.Movies.Any() ? 1 : fullModel.Movies.Max(movie => movie.Id) + 1;
                 newMovie.Id = newMovieId;
                 var existingMovieList = fullModel.Movies.ToList();
                 existingMovieList.Add(newMovie);
@@ -174,7 +174,7 @@ namespace Cinema.Services
             {
                 return false;
             }
-       
+
             return true;
 
         }
@@ -185,7 +185,7 @@ namespace Cinema.Services
 
             try
             {
-                var newHallId = fullModel.Halls.Max(movie => movie.Id) + 1;
+                var newHallId = !fullModel.Halls.Any() ? 1 : fullModel.Halls.Max(movie => movie.Id) + 1;
                 newHall.Id = newHallId;
                 var existingHallsList = fullModel.Halls.ToList();
                 existingHallsList.Add(newHall);
@@ -196,7 +196,7 @@ namespace Cinema.Services
             {
                 return false;
             }
-    
+
             return true;
         }
 
@@ -206,7 +206,7 @@ namespace Cinema.Services
 
             try
             {
-                var newTariffId = fullModel.Tariffs.Max(timeSlot => timeSlot.Id) + 1;
+                var newTariffId = !fullModel.Tariffs.Any() ? 1 : fullModel.Tariffs.Max(timeSlot => timeSlot.Id) + 1;
                 newTariff.Id = newTariffId;
                 var existingnewTariffList = fullModel.Tariffs.ToList();
                 existingnewTariffList.Add(newTariff);
@@ -217,7 +217,7 @@ namespace Cinema.Services
             {
                 return false;
             }
-           
+
             return true;
         }
 
@@ -227,7 +227,7 @@ namespace Cinema.Services
 
             try
             {
-                var newTimeSlotId = fullModel.TimeSlots.Max(timeSlot => timeSlot.Id) + 1;
+                var newTimeSlotId = !fullModel.TimeSlots.Any() ? 1 : fullModel.TimeSlots.Max(timeSlot => timeSlot.Id) + 1;
                 newTimeSlot.Id = newTimeSlotId;
                 var existingnewTimeSlotList = fullModel.TimeSlots.ToList();
                 existingnewTimeSlotList.Add(newTimeSlot);
@@ -238,7 +238,102 @@ namespace Cinema.Services
             {
                 return false;
             }
-            
+
+            return true;
+        }
+
+        public bool RemoveMovie(int id)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var findMovieId = fullModel.Movies.First(movie => movie.Id == id);
+                var existingMovieList = fullModel.Movies.ToList();
+                existingMovieList.Remove(findMovieId);
+                fullModel.Movies = existingMovieList.ToArray();
+
+                //delete relativies TimeToSlot
+                var existingTimeSlotsList = fullModel.TimeSlots.ToList();
+                existingTimeSlotsList.RemoveAll(timeSlot => timeSlot.MovieId == id);
+                fullModel.TimeSlots = existingTimeSlotsList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool RemoveHall(int id)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var findHallId = fullModel.Halls.First(movie => movie.Id == id);
+                var existingHallList = fullModel.Halls.ToList();
+                existingHallList.Remove(findHallId);
+                fullModel.Halls = existingHallList.ToArray();
+
+                //delete relativies TimeToSlot
+                var existingTimeSlotsList = fullModel.TimeSlots.ToList();
+                existingTimeSlotsList.RemoveAll(timeSlot => timeSlot.MovieId == id);
+                fullModel.TimeSlots = existingTimeSlotsList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool RemoveTariff(int id)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var findTariffId = fullModel.Tariffs.First(tariff => tariff.Id == id);
+                var existingTariffList = fullModel.Tariffs.ToList();
+                existingTariffList.Remove(findTariffId);
+                fullModel.Tariffs = existingTariffList.ToArray();
+
+                //delete relativies TimeToSlot
+                var existingTimeSlotsList = fullModel.TimeSlots.ToList();
+                existingTimeSlotsList.RemoveAll(timeSlot => timeSlot.MovieId == id);
+                fullModel.TimeSlots = existingTimeSlotsList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool RemoveTimeSlot(int id)
+        {
+            var fullModel = GetDataFromFile();
+
+            try
+            {
+                var findTimeSlotId = fullModel.TimeSlots.First(timeSlot => timeSlot.Id == id);
+                var existingTimeSlotsList = fullModel.TimeSlots.ToList();
+                existingTimeSlotsList.Remove(findTimeSlotId);
+                fullModel.TimeSlots = existingTimeSlotsList.ToArray();
+                SaveDataToFile(fullModel);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
             return true;
         }
     }
