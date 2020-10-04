@@ -1,7 +1,7 @@
 ﻿using Cinema.Models.Tickets;
-using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
@@ -160,12 +160,16 @@ namespace Cinema.Services
         public bool CreateMovie(Movie newMovie)
         {
             var fullModel = GetDataFromFile();
-
             try
             {
-                var newMovieId = !fullModel.Movies.Any() ? 1 : fullModel.Movies.Max(movie => movie.Id) + 1;
+                var newMovieId = 1;
+                //var newMovieId = !fullModel.Movies.Any() ? 1 : fullModel.Movies.Max(movie => movie.Id) + 1;
+                if (fullModel.Movies != null && fullModel.Movies.Any())
+                {
+                    newMovieId = fullModel.Movies.Max(movie => movie.Id) + 1;
+                }
                 newMovie.Id = newMovieId;
-                var existingMovieList = fullModel.Movies.ToList();
+                var existingMovieList = fullModel.Movies?.ToList() ?? new List<Movie>();
                 existingMovieList.Add(newMovie);
                 fullModel.Movies = existingMovieList.ToArray();
                 SaveDataToFile(fullModel);
@@ -174,9 +178,7 @@ namespace Cinema.Services
             {
                 return false;
             }
-
             return true;
-
         }
 
         public bool CreateHall(Hall newHall)
@@ -335,6 +337,40 @@ namespace Cinema.Services
             }
 
             return true;
+        }
+
+        public MovieListItem[] GetFullMoviesInfo()
+        {
+            var allMovies = GetAllMovies();
+            var resultMovies = new List<MovieListItem>();
+            foreach (var movie in allMovies)
+            {
+                resultMovies.Add(new MovieListItem
+                { 
+                Movie = movie,
+                AvailableTimeSlots = GetTimeSlotTagsByMovieId(movie.Id)
+                });
+            }
+
+            return resultMovies.ToArray();
+        }
+
+        public TimeSlotTag[] GetTimeSlotTagsByMovieId(int movid)
+        {
+            var timeSlots = GetTimeSlotsByMovieId(movid);
+            var tariffs = GetAllTariffs();
+            var resultModel = new List<TimeSlotTag>();
+            foreach (var timeSlot in timeSlots)
+            {
+                resultModel.Add(new TimeSlotTag
+                {
+                    TimeSlotId = timeSlot.Id,
+                    StartTime = timeSlot.StartTime,
+                    Cost = tariffs.FirstOrDefault(x => x.Id == timeSlot.TariffId)?.Cost ?? 0
+                });
+            }
+
+            return resultModel.ToArray();
         }
     }
 }

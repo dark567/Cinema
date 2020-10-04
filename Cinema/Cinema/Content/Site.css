@@ -32,6 +32,58 @@
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
+.timeslot-tag {
+    display: inline-block;
+    width: 90px;
+    text-align: center;
+}
+
+.movie-list-section {
+    padding: 15px 0;
+    border-bottom: 1px solid gray;
+}
+
+.movie-list-header {
+    padding-bottom: 10px;
+}
+
+.img-movies-list {
+    max-width: 100%;
+    border: 2px solid lightgray;
+}
+
+.rating-movies-list {
+    display: inline-block;
+    float: right;
+}
+
+.name-movie-list {
+    display: inline-block;
+    max-width: 100px;
+    font-weight: bold;
+}
+
+.movie-list-footer {
+    padding-top: 10px;
+}
+
+.genres-movie-list {
+    display: inline-block;
+}
+
+.age-movies-list {
+    display: inline-block;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 5px 0;
+    margin: 5px;
+    float: right;
+    text-align: center;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

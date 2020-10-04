@@ -123,9 +123,11 @@
     <Compile Include="Attributes\PopulateHallsListAttribute.cs" />
     <Compile Include="Attributes\PopulateTariffsListAttribute.cs" />
     <Compile Include="Attributes\PopulateMoviesListAttribute.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\TicketsAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,11 +135,13 @@
     <Compile Include="Models\Tickets\Genre.cs" />
     <Compile Include="Models\Tickets\Hall.cs" />
     <Compile Include="Models\Tickets\Movie.cs" />
+    <Compile Include="Models\Tickets\MovieListItem.cs" />
     <Compile Include="Models\Tickets\SubNavigationMenu.cs" />
     <Compile Include="Models\Tickets\Tariff.cs" />
     <Compile Include="Models\Tickets\TicketsJsonModel.cs" />
     <Compile Include="Models\Tickets\TimeSlot.cs" />
     <Compile Include="Models\Tickets\TimeSlotGridRow.cs" />
+    <Compile Include="Models\Tickets\TimeSlotTag.cs" />
     <Compile Include="Models\Tickets\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ITicketService.cs" />
@@ -210,6 +214,7 @@
     <Content Include="Views\TicketsAdmin\AddTimeSlot.cshtml" />
     <Content Include="Scripts\moment.min.js.map" />
     <Content Include="Scripts\moment-with-locales.min.js.map" />
+    <Content Include="Views\Tickets\MoviesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

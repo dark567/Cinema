@@ -126,9 +126,9 @@ namespace Cinema.Controllers
         }
 
 
-        public ActionResult GetMovieTimeSlotsList(int movieId)
+        public ActionResult GetMovieTimeSlotsList(int timeSlotId)
         {
-            var timeSlots = _ticketService.GetTimeSlotsByMovieId(movieId);
+            var timeSlots = _ticketService.GetTimeSlotsByMovieId(timeSlotId);
             var resultModel = ProcessTimeSLot(timeSlots);
             return View("~/Views/TicketsAdmin/TimeSlotList.cshtml", resultModel);
         }

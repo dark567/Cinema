@@ -32,5 +32,7 @@ namespace Cinema.Services
         TimeSlot[] GetTimeSlotsByMovieId(int id);
 
 
+        MovieListItem[] GetFullMoviesInfo();
+        TimeSlotTag[] GetTimeSlotTagsByMovieId(int movid);
     }
 }
