@@ -84,9 +84,41 @@
     float: right;
     text-align: center;
 }
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    /*max-width: 280px;*/
+
+.cinema-row {
+    padding: 2px 0;
 }
+
+.cinema-row-label {
+    min-width: 50px;
+    display: inline-block;
+}
+
+.cinema-seat {
+    display: inline-block;
+}
+
+    .cinema-seat input[type=checkbox] {
+        visibility: hidden;
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px); /*IE6, IE7*/
+        clip: rect(1px, 1px, 1px, 1px); /*для новых браузеров*/
+    }
+
+        .cinema-seat input[type=checkbox] + label {
+            color: gray;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            min-width: 30px;
+            min-height: 30px;
+            text-align: center;
+            padding: 5px;
+        }
+        .cinema-seat input[type=checkbox]:checked + label {
+        color:darkorange;
+        border: 1px solid orange;
+        background-color: white;
+        } 

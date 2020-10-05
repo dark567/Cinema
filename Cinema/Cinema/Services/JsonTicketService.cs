@@ -12,9 +12,9 @@ namespace Cinema.Services
         private HttpContext Context { get; set; }
         private const string PathToJson = "/Bd/Tickets.json";
 
-        public JsonTicketService(HttpContext context)
+        public JsonTicketService()
         {
-            Context = context;
+            Context = HttpContext.Current;
         }
 
         public bool UpdateMovie(Movie updatedMovie)
@@ -346,9 +346,9 @@ namespace Cinema.Services
             foreach (var movie in allMovies)
             {
                 resultMovies.Add(new MovieListItem
-                { 
-                Movie = movie,
-                AvailableTimeSlots = GetTimeSlotTagsByMovieId(movie.Id)
+                {
+                    Movie = movie,
+                    AvailableTimeSlots = GetTimeSlotTagsByMovieId(movie.Id)
                 });
             }
 

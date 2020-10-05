@@ -15,9 +15,9 @@ namespace Cinema.Controllers
     {
         private readonly ITicketService _ticketService;
 
-        public TicketsController()
+        public TicketsController(ITicketService ticketService)
         {
-            _ticketService = new JsonTicketService(System.Web.HttpContext.Current);
+            _ticketService = ticketService;
         }
 
         public ActionResult GetMovies()
@@ -26,9 +26,10 @@ namespace Cinema.Controllers
             return View("~/Views/Tickets/MoviesList.cshtml", allMovies);
         }
 
-        public ActionResult GetHallInfo()
+        public ActionResult GetHallInfo(int timeSlotId)
         {
-            return null;
+            //return null;
+            return View("~/Views/Tickets/HallInfo.cshtml");
         }
 
     }

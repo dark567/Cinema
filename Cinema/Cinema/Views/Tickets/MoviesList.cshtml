@@ -38,7 +38,7 @@
 
                         @timeSlotTag.StartTime
                         @*<span>@string.Format("{0}P", timeSlotTag.Cost)</span>*@
-                        <span>@timeSlotTag.Cost P</span>
+                        <span>@timeSlotTag.Cost.ToString("####") P</span>
                     </div>
                 }
             </div>

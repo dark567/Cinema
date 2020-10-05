@@ -15,9 +15,9 @@ namespace Cinema.Controllers
     {
         private readonly ITicketService _ticketService;
 
-        public TicketsAdminController()
+        public TicketsAdminController(ITicketService ticketService)
         {
-            _ticketService = new JsonTicketService(System.Web.HttpContext.Current);
+            _ticketService = ticketService;
         }
 
 
