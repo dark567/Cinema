@@ -21,9 +21,11 @@ namespace Cinema
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/moment-with-locales.min.js",
+                       "~/Scripts/handlebars.js",
                       "~/Scripts/schedule-film.js",
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/bootstrap-datetimepicker.js"));
+                      "~/Scripts/bootstrap-datetimepicker.js",
+                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

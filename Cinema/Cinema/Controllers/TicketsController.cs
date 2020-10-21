@@ -29,7 +29,14 @@ namespace Cinema.Controllers
         public ActionResult GetHallInfo(int timeSlotId)
         {
             //return null;
-            return View("~/Views/Tickets/HallInfo.cshtml");
+
+            var timeSlot = _ticketService.GetTimeSlotById(timeSlotId);
+            var currentTariff = _ticketService.GetTariffById(timeSlot.TariffId);
+            var model = new HallInfo
+            {
+                CurrentTariff = currentTariff
+            };
+            return View("~/Views/Tickets/HallInfo.cshtml", model);
         }
 
     }

@@ -77,3 +77,11 @@ D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Release\Cinema.csproj.CopyComplete
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Release\Cinema.dll
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Release\Cinema.pdb
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Release\Cinema.csprojAssemblyReference.cache
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.dll
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Mvc.dll
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Web.dll
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.pdb
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.xml
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Mvc.pdb
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Web.pdb
+D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Web.xml

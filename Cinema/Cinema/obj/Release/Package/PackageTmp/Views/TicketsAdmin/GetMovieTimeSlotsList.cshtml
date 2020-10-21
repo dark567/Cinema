@@ -1,34 +1,39 @@
-﻿@model Cinema.Models.Tickets.Movie
+﻿@using Cinema.Models.Tickets
 
-@using (Html.BeginForm("EditMovie", "TicketsAdmin"))
+@model TimeSlotGridRow[]
+
+@section SubNav
 {
-    @Html.HiddenFor(x => x.Id)
-    <div>
-        @Html.LabelFor(x => x.Name)
-        @Html.EditorFor(x => x.Name)
-    </div>
-    <div>
-        @Html.LabelFor(x => x.ImageUrl)
-        @Html.EditorFor(x => x.ImageUrl)
-    </div>
-    <div>
-        @Html.LabelFor(x => x.Description)
-        @Html.TextAreaFor(x => x.Description)
-    </div>
-    <div>
-        @Html.LabelFor(x => x.Duration)
-        @Html.EditorFor(x => x.Duration)
-    </div>
-    <div>
-        @Html.LabelFor(x => x.MinAge)
-        @Html.EditorFor(x => x.MinAge)
-    </div>
-    <div>
-        @Html.LabelFor(x => x.Rating)
-        @Html.EditorFor(x => x.Rating)
-    </div>
-
-    @Html.Partial("~/Views/Editors/Types.cshtml", Model.Types)
-    @Html.Partial("~/Views/Editors/Genre.cshtml", Model.Genres)
-    <input type="submit" value="Save changes" />
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.TimeSlots)
 }
+<h2 class="admin-heading">TimeSlots List</h2>
+
+<div class="admin-add-btn">
+    @Html.ActionLink("Add timeSlot", "AddTimeSlot", "TicketsAdmin", null, new { @class = "btn btn-success btn-block" })
+</div>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th style="min-width: 50px">id</th>
+            <th style="min-width: 50px">Start Time</th>
+            <th style="min-width: 100px">Movie</th>
+            <th style="min-width: 100px">Hall</th>
+            <th style="min-width: 100px">Tariff</th>
+            <th style="min-width: 100px">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var timeSlot in Model)
+        {
+            <tr>
+                <td>@timeSlot.Id</td>
+                <td>@timeSlot.StartTime</td>
+                <td>@timeSlot.MovieName</td>
+                <td>@timeSlot.HallName</td>
+                <td>@timeSlot.TariffName</td>
+                <td>@Html.ActionLink("Edit", "EditTimeSlot", "TicketsAdmin", new { timeSlotId = timeSlot.Id }, new { @class = "btn btn-primary btn-block" })</td>
+            </tr>
+        }
+    </tbody>
+</table>

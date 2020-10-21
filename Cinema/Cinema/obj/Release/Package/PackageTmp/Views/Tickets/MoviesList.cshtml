@@ -1,0 +1,48 @@
+﻿@using Cinema.Extensions
+@model Cinema.Models.Tickets.MovieListItem[]
+
+@foreach (var movieItem in Model)
+{
+    <div class="movie-list-section">
+        <div class="row">
+            <div class="col-md-3 movie-list-header">
+                <div class="name-movie-list">@movieItem.Movie.Name</div>
+                <div class="rating-movies-list">@movieItem.Movie.Rating</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <img class="img-rounded img-movies-list" src="@movieItem.Movie.ImageUrl" />
+                </div>
+                <div class="movie-list-footer">
+                    <div class="genres-movie-list">
+                        <div>
+                            @string.Join(", ", movieItem.Movie.Genres)
+                        </div>
+                        <div>
+                            @movieItem.Movie.Duration.ToDuration()
+                        </div>
+                    </div>
+                    <div class="age-movies-list">
+                        @movieItem.Movie.MinAge+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                @foreach (var timeSlotTag in movieItem.AvailableTimeSlots)
+                {
+                    <div class="timeslot-tag">
+                        @Html.ActionLink(timeSlotTag.StartTime.ToShortTimeString(), "GetHallInfo", "Tickets", new { timeSlotId = timeSlotTag.TimeSlotId }, new { @class = "btn btn-default btn-block" })
+
+                        @timeSlotTag.StartTime
+                        @*<span>@string.Format("{0}P", timeSlotTag.Cost)</span>*@
+                        <span>@timeSlotTag.Cost.ToString("####") P</span>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+}

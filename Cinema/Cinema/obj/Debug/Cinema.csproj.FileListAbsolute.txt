@@ -76,7 +76,6 @@ D:\project\c#\temp\Cinema\Cinema\Cinema\bin\Microsoft.CodeDom.Providers.DotNetCo
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csproj.CopyComplete
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.dll
 D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.pdb
-D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csprojAssemblyReference.cache
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.dll
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Mvc.dll
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Web.dll
@@ -85,3 +84,4 @@ D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.xml
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Mvc.pdb
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Web.pdb
 D:\project\c#\temp\Cinema\Cinema\Cinema\bin\LightInject.Web.xml
+D:\project\c#\temp\Cinema\Cinema\Cinema\obj\Debug\Cinema.csprojAssemblyReference.cache

@@ -143,6 +143,7 @@
     <Compile Include="Models\LogIn.cs" />
     <Compile Include="Models\Tickets\Genre.cs" />
     <Compile Include="Models\Tickets\Hall.cs" />
+    <Compile Include="Models\Tickets\HallInfo.cs" />
     <Compile Include="Models\Tickets\Movie.cs" />
     <Compile Include="Models\Tickets\MovieListItem.cs" />
     <Compile Include="Models\Tickets\SubNavigationMenu.cs" />
@@ -172,8 +173,19 @@
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Readme\Handlebarsjs_release-notes.md" />
+    <Content Include="App_Readme\Handlebarsjs_README.md" />
+    <Content Include="App_Readme\Handlebarsjs_LICENSE" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\handlebars.amd.js" />
+    <Content Include="Scripts\handlebars.amd.min.js" />
+    <Content Include="Scripts\handlebars.js" />
+    <Content Include="Scripts\handlebars.min.js" />
+    <Content Include="Scripts\handlebars.runtime.amd.js" />
+    <Content Include="Scripts\handlebars.runtime.amd.min.js" />
+    <Content Include="Scripts\handlebars.runtime.js" />
+    <Content Include="Scripts\handlebars.runtime.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
