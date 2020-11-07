@@ -9,5 +9,6 @@ namespace Cinema.Models.Tickets
     {
         public Tariff CurrentTariff { get; set; }
         public int CurrentTimeslotId { get; set; }
+        public TimeSlotSeatRequest[] RequestedSeats { get; set; }
     }
 }

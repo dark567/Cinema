@@ -35,7 +35,8 @@ namespace Cinema.Controllers
             var model = new HallInfo
             {
                 CurrentTariff = currentTariff,
-                CurrentTimeslotId = timeSlotId
+                CurrentTimeslotId = timeSlotId,
+                RequestedSeats = timeSlot.RequestedSeats
             };
             return View("~/Views/Tickets/HallInfo.cshtml", model);
         }

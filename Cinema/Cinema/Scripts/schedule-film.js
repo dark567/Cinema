@@ -15,7 +15,8 @@
                 var dataSet = targetElement.dataset;
                 var newSeat = {
                     row: dataSet.seatRow,
-                    seat: dataSet.seatCol
+                    seat: dataSet.seatCol,
+                    elem: targetElement
                 };
                 var existingSeatIndex = -1;
                 for (var i = 0; i < selectedSeats.addedSeats.length; i++) {
@@ -60,10 +61,26 @@
                     dataType: 'json',
                     contentType: 'application/json;charset=utf-8',
                     data: JSON.stringify(resultModel)
-                }).done(function() {
-                    alert("Order processed successfully");
+                }).done(function () {
+                    for (var i = 0; i < selectedSeats.addedSeats.length; i++) {
+                        var currentSeat = selectedSeats.addedSeats[i].elem;
+                        if (status === 'reserve') {
+                            currentSeat.parentNode.classList.add('is-reserved');
+                        }
+                        else {
+                            currentSeat.parentNode.classList.add('is-sold');
+                        }
+                        currentSeat.checked = false;
+                        currentSeat.disabled = true;
+                    }
+                    selectedSeats.addedSeats = []; //обнуление массива
+
+                    var resultHtml = template(selectedSeats); // передача в html
+                    $(".js-seat-result-container").html(resultHtml); // передача в html
+
+                    alert("Order processed successfully"); //сообщение
                 }).fail(function () {
-                    alert("Order processing failed. Please, contact administrator!")
+                    alert("Order processing failed. Please, contact your administrator!")
                 })
         }
     }
