@@ -34,5 +34,6 @@ namespace Cinema.Services
 
         MovieListItem[] GetFullMoviesInfo();
         TimeSlotTag[] GetTimeSlotTagsByMovieId(int movid);
+        bool AddRequestedSeatsToTimeSlot(SeatsProcessRequests request);
     }
 }

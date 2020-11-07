@@ -372,5 +372,41 @@ namespace Cinema.Services
 
             return resultModel.ToArray();
         }
+
+        public bool AddRequestedSeatsToTimeSlot(SeatsProcessRequests request)
+        {
+            var fullModel = GetDataFromFile();
+            var timeSlotToUpdate = fullModel.
+                TimeSlots.FirstOrDefault(timeslot => timeslot.Id == request.TimeSlotId);
+            if (timeSlotToUpdate == null)
+                return false;
+
+            List<TimeSlotSeatRequest> requestToProcess;
+            if (timeSlotToUpdate.RequestedSeats != null && timeSlotToUpdate.RequestedSeats.Any())
+            {
+                requestToProcess = timeSlotToUpdate.RequestedSeats.ToList();
+            }
+            else
+            {
+                requestToProcess = new List<TimeSlotSeatRequest>();
+            }
+            // if (request != null && request.SeatsRequest != null && request.SeatsRequest.AddedSeats != null)
+            if (request?.SeatsRequest?.AddedSeats != null && request.SeatsRequest.AddedSeats.Any())
+            {
+                foreach (var addedSeat in request.SeatsRequest.AddedSeats)
+                {
+                    requestToProcess.Add(new TimeSlotSeatRequest
+                    {
+                        Row = addedSeat.Row,
+                        Seat = addedSeat.Seat,
+                        Status = request.SelectedStatus
+                    });
+                }
+                timeSlotToUpdate.RequestedSeats = requestToProcess.ToArray();
+                SaveDataToFile(fullModel);
+                return true;
+            }
+            return false;
+        }
     }
 }

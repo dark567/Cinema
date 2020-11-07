@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Cinema.Models.Tickets
 {
-    public class HallInfo
+    public enum RequestStatus
     {
-        public Tariff CurrentTariff { get; set; }
-        public int CurrentTimeslotId { get; set; }
+        Buy,
+        Reserve
     }
 }

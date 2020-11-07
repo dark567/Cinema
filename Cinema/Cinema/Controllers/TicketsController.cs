@@ -34,10 +34,19 @@ namespace Cinema.Controllers
             var currentTariff = _ticketService.GetTariffById(timeSlot.TariffId);
             var model = new HallInfo
             {
-                CurrentTariff = currentTariff
+                CurrentTariff = currentTariff,
+                CurrentTimeslotId = timeSlotId
             };
             return View("~/Views/Tickets/HallInfo.cshtml", model);
         }
 
+        public string ProcessRequest(SeatsProcessRequests request)
+        {
+            var requestProcessingResult = _ticketService.AddRequestedSeatsToTimeSlot(request);
+            return JsonConvert.SerializeObject(new
+            {
+                requestResult = requestProcessingResult
+            });
+        }
     }
 }

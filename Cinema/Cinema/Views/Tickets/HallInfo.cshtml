@@ -5,7 +5,9 @@
 }
 
 <h1>Select your seat</h1>
-<div class="row js-seat-container" data-current-cost="@Model.CurrentTariff.Cost.ToString("####")">
+<div class="row js-seat-container" 
+     data-current-cost="@Model.CurrentTariff.Cost.ToString("####")"
+     data-current-timeslot-id="@Model.CurrentTimeslotId">
     <div class="col-md-10">
         @for (int i = 1; i <= rows; i++)
         {
@@ -25,7 +27,8 @@
         Selected seats:
         <div class="js-seat-result-container">
         </div>
-
+        <div class="btn btn-default btn-block js-reserve-seats">Make a reservation</div>
+        <div class="btn btn-success btn-block js-buy-seats">Buy tickets</div>
     </div>
 </div>
 
